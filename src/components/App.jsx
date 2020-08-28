@@ -15,7 +15,16 @@ function App(props) {
 
     return (
         <>
-            {props.employees && ( props.employees.map(emp => <h1>User Name: {emp.name}</h1>) )}
+            { props.employees && ( 
+                props.employees.map(emp => (
+                    <div key={emp.id}>
+                        <img src={emp.avatar} alt={emp.name} />
+                        <h1>User Name: {emp.name}</h1>
+                        <h2>User Created On: {new Date(emp.createdAt).toDateString()}</h2>
+                        <h3>Employee Id: {emp.id}</h3><hr/>
+                    </div>
+                )
+            ))}
         </>
     )
 }
